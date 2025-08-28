@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers</title>
+    <link rel="stylesheet" href="/static/css/foot.css">
+    <style>
+        /* General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #e1bee7, #fff3e0);
+            color: #222;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #hh1 {
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 2em;
+            background: linear-gradient(to right, #ff6b6b, #ff9800, #4caf50, #2196f3, #9c27b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 8px #ff6b6b;
+            }
+
+            50% {
+                text-shadow: 0 0 12px #00e5ff;
+            }
+
+            100% {
+                text-shadow: 0 0 16px #4caf50;
+            }
+        }
+
+        /* Profiles Container */
+        .profiles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        /* Profile Card */
+        .profile {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #c3eaff, #d4fc79);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .profile:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .profile img:hover {
+            transform: scale(1.08);
+        }
+
+        .profile h1 {
+            font-size: 1.3em;
+            margin: 15px 0 8px;
+            color: #222;
+            font-weight: bold;
+        }
+
+        .profile p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        /* Details Styling */
+        .profile details summary {
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #0077ff;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .profile details summary:hover {
+            color: #0056b3;
+        }
+
+        .profile details p {
+            font-size: 0.95em;
+            color: #111;
+            margin-top: 6px;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            #hh1 {
+                font-size: 1.7em;
+                padding: 15px;
+            }
+
+            .profile {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hh1 {
+                font-size: 1.4em;
+            }
+
+            .profile img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile h1 {
+                font-size: 1.1em;
+            }
+
+            .profile p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+    <h1 id="hh1">Designed and Developed By</h1>
+
+    <div class="profiles">
+        <div class="profile">
+            <img src="https://res.cloudinary.com/dn7sk8y8y/image/upload/v1716544911/WhatsApp_Image_2024-05-24_at_15.24.56_276bda5e_gws3ax.jpg"
+                alt="Khaja Mubashir Arsalan">
+            <h1>Khaja Mubashir Arsalan</h1>
+            <p>Frontend Developer | UI Designer</p>
+            <details>
+                <summary>Contact</summary>
+                <p>Email: kmarsalan124@gmail.com</p>
+            </details>
+        </div>
+
+        <div class="profile">
+            <img src="https://res.cloudinary.com/dn7sk8y8y/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1716803195/profile.jpg_ylauu8.jpg"
+                alt="Keloth Adithya">
+            <h1>Keloth Adithya</h1>
+            <p>Backend Developer | Database Specialist</p>
+            <details>
+                <summary>Contact</summary>
+                <p>Email: adithya.k@example.com</p>
+            </details>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+
+</html>

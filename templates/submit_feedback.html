@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Submit Feedback</title>
+    <style>
+        /* Reset and base */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f0f4f8;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: capitalize;
+            margin-top: 40px;
+            font-size: 2.2rem;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container centering form */
+        #feed {
+            background: white;
+            max-width: 450px;
+            width: 90%;
+            margin: 30px auto 60px auto;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #feed:focus-within {
+            box-shadow: 0 12px 28px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Form styling */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Style form fields */
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            font-size: 1rem;
+            padding: 12px 15px;
+            margin-bottom: 18px;
+            border: 1.8px solid #ccc;
+            border-radius: 8px;
+            resize: vertical;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        /* Focus states for inputs */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus {
+            border-color: #04aa6d;
+            box-shadow: 0 0 8px #04aa6d80;
+            outline: none;
+        }
+
+        /* Labels styling - if labels are used */
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #555;
+            user-select: none;
+        }
+
+        /* Submit button */
+        #btt {
+            background-color: #04aa6d;
+            color: #fff;
+            font-size: 1.25rem;
+            padding: 14px 0;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px #2d6a43;
+            font-weight: 700;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            user-select: none;
+        }
+
+        #btt:hover {
+            background-color: #3e8e41;
+            color: #fff;
+        }
+
+        #btt:active {
+            box-shadow: 0 5px #1a4f2b;
+            transform: translateY(3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            #feed {
+                padding: 25px 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+    <h1 style="color: whitesmoke;">Submit Feedback</h1>
+
+    <div id="feed">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button id="btt" type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    {% include "footer.html" %}
+</body>
+
+</html>

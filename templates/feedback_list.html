@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback List</title>
+    <style>
+        /* General Styling */
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f9ff;
+    margin: 0;
+    padding: 20px 10px;
+    color: #222;
+    min-height: 100vh;
+}
+
+/* Center only the heading and table */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+        /* Heading Styling */
+        h1 {
+            text-align: center;
+            text-transform: capitalize;
+            margin: 25px 0 20px;
+            font-size: 2rem;
+            background: linear-gradient(90deg, #04aa6d, #0f9d58, #2196f3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Table Styling */
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        thead {
+            background: linear-gradient(90deg, #04aa6d, #0f9d58, #2196f3);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid #e0e0e0;
+            word-break: break-word;
+            font-size: 0.95rem;
+        }
+
+        tbody tr {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #eafaf2;
+            transform: scale(1.01);
+            cursor: pointer;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Mobile Responsive Card Layout */
+        @media (max-width: 600px) {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+        width: 100%;
+    }
+        }
+    </style>
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+    <div class="page-container">
+        <h1>Your Feedbacks</h1>
+
+        {% if feedbacks %}
+        <!-- Table for larger screens -->
+        <div class="table-responsive d-none d-md-block">
+            <table class="table table-bordered table-striped shadow-sm rounded">
+                <thead class="table-success text-dark text-center">
+                    <tr>
+                        <th>Username</th>
+                        <th>Feedback</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feedback in feedbacks %}
+                    <tr>
+                        <td>{{ request.user.username }}</td>
+                        <td>{{ feedback.feedback_text }}</td>
+                        <td>{{ feedback.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Cards for mobile screens -->
+        <div class="d-block d-md-none">
+            {% for feedback in feedbacks %}
+            <div class="card mb-3 shadow-sm border-0 rounded-3">
+                <div class="card-body">
+                    <p><strong class="text-success">Username:</strong> {{ request.user.username }}</p>
+                    <p><strong class="text-primary">Feedback:</strong> {{ feedback.feedback_text }}</p>
+                    <p><strong class="text-secondary">Time:</strong> {{ feedback.created_at }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="no-feedback">No feedbacks yet.</p>
+        {% endif %}
+    </div>
+
+    {% include "footer.html" %}
+</body>
+
+
+
+</html>

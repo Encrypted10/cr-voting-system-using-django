@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CR Voting</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <style>
+        body {
+            background: #181A1B;
+            color: #ededed;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .hero-section {
+  min-height: 450px;
+  padding: 80px 0 60px 0;  /* 80px top padding offsets navbar */
+  background: linear-gradient(120deg, #00f6ff 0%, #6a11cb 100%);
+  color: #181A1B;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #222;
+        }
+
+        .features-section {
+            background: #222;
+            padding: 40px 0;
+        }
+
+        .feature-card {
+            background: #181A1B;
+            border-radius: 12px;
+            border: none;
+            padding: 28px 18px;
+            box-shadow: 0 4px 28px rgba(0, 0, 0, 0.12);
+            color: #ededed;
+            transition: transform 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            background: #23272b;
+        }
+
+        @media (max-width: 576px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .feature-card {
+                padding: 20px 8px;
+            }
+        }
+
+        html, body {
+  min-height: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  
+}
+
+/* .hero-section, .features-section {
+  padding: 40px 0; /* removes forced height */
+/* } */ 
+
+
+    </style>
+</head>
+
+<body>
+    <!-- Navbar (Bootstrap) -->
+    {% include "navbar.html" %}
+
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Welcome to the CR Voting System</h1>
+            <p>Vote for your Class Representative securely and transparently.<br>
+                Easy registration, real-time results, and full privacy protection.
+            </p>
+            <a href="{% url 'nominees' %}" class="btn btn-lg btn-light fw-bold shadow-sm">Nominees Details</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <div class="feature-card h-100 text-center">
+                        <h4 class="mb-2 text-info">Simple Registration</h4>
+                        <p>Sign up using your college email and join the secure voting process in seconds.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card h-100 text-center">
+                        <h4 class="mb-2 text-info">Anonymous Voting</h4>
+                        <p>Your vote is safe and private. No one can know who you voted for - including admins!</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card h-100 text-center">
+                        <h4 class="mb-2 text-info">Live Results</h4>
+                        <p>Track voting progress and results in real time from any device, anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        {% include "footer.html" %}
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
