@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'elections',
+    'vote',
     # 'Feedback',
 ]
 AUTH_USER_MODEL = 'elections.CustomUser'
