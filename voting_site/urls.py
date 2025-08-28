@@ -26,9 +26,8 @@ app_name = 'elections'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("aboutus/", views.aboutus, name="aboutus"),
-    path('',views.landingpage, name='landing'),
     path('register/', views.register, name='register'),
-    path('login/', views.login_view, name='login'),
+    path('', views.login_view, name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
     path('home/', views.home, name='home'),
     path('footer/', views.footerpage, name='footer'),

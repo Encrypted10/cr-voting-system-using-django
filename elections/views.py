@@ -11,8 +11,7 @@ def footerpage(request):
 def aboutus(request):
     return render(request, "aboutus.html")
 
-def landingpage(request):
-    return render(request, "landing.html")
+
 
 def successpage(request):
     return render(request,"success.html")

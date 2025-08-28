@@ -3,8 +3,8 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import Nominee, Vote
-from .forms import UserRegistrationForm, NomineeForm
+from elections.models import Nominee, Vote
+from elections.forms import UserRegistrationForm, NomineeForm
 from django.db.models import Count
 
 def home(request):
